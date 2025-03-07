@@ -42,6 +42,6 @@ class ProjetoViewSet(viewsets.ModelViewSet):
         colaboradores_ids = request.data.get('equipe', [])
         colaboradores = Colaborador.objects.filter(id__in=colaboradores_ids)
         projeto.equipe.set(colaboradores)
-        projeto.atualizar_qtd_membros()
+        projeto.qtd_membros_atualizada()
         return Response({'status': 'Equipe atualizada'}, status=status.HTTP_200_OK)
 
